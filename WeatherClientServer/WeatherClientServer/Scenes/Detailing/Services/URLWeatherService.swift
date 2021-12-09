@@ -14,15 +14,14 @@ class URLWeatherService {
 //        var city: DetailingWeatherModel
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
-        let apiKey = "9365bd23f11a403221187f8a1ebac65b"
+        let apiKey = "b97733c2cd4a8986f9ba9b98f7f69ca2"
 
         guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?id=\(elementId)&lang=ru&units=metric&APPID=\(apiKey)") else { return }
         
         let task = session.dataTask(with: url) { data, response, error in
             
             guard let data = data else { return }
-            print("PRETTYJSON")
-            print(data.prettyJSON)
+//            print(data.prettyJSON)
             
             do {
 
