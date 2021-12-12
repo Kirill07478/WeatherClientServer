@@ -26,8 +26,6 @@ extension DetailingPresenter: DetailingPresentationLogic {
     
     func present(data: DetailingWeatherModel) {
         
-        print(data.city)
-        
         viewController?.display(data: data)
         
     }

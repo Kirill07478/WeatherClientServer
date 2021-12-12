@@ -63,8 +63,10 @@ extension DetailingViewController: DetailingDisplayLogic {
     
     func display(data: DetailingWeatherModel) {
         
-        nameCity.text = data.city
-        temperture.text = "\(data.temp) градусов Цельсия"
+        DispatchQueue.main.async {
+            self.nameCity.text = data.city
+            self.temperture.text = "\(data.temp) градусов Цельсия"
+        }
         
     }
     

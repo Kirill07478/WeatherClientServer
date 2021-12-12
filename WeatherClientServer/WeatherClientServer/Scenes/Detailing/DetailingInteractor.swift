@@ -31,7 +31,9 @@ extension DetailingInteractor: DetailingBusinessLogic {
     func fetchDetails() {
         print("ID принял - \(elementId)")
         
-        URLWeatherService.firstRequest(elementId: elementId) { [weak self] city in
+        let queue = DispatchQueue(label: "update")
+        queue.async {
+            URLWeatherService.firstRequest(elementId: self.elementId) { [weak self] city in
             self?.cities.append(city)
             print(self?.cities)
             
@@ -41,4 +43,5 @@ extension DetailingInteractor: DetailingBusinessLogic {
             
             }
         }
+    }
 }
